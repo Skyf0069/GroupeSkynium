@@ -4,8 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Groupe Skynium</title>
-    <!-- Police d'écriture propre et standard -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://skynium.fr/ressources/style.css">
+    <link rel="stylesheet" href="https://skynium.fr/ressources/fontawesome/css/all.min.css">
+
+    <link rel="icon" type="image/png" href="https://skynium.fr/ressources/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="https://skynium.fr/ressources/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="https://skynium.fr/ressources/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="https://skynium.fr/ressources/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Skynium" />
+    <link rel="manifest" href="https://skynium.fr/ressources/favicon/site.webmanifest" />
     
     <style>
         /* =================================================== */
@@ -362,6 +370,308 @@
 </head>
 <body>
 
+        <!-- ============================================ -->
+    <!-- LIEN D'ÉVITEMENT (visible au focus clavier)  -->
+    <!-- ============================================ -->
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <!-- ============================================ -->
+    <!-- BOUTON ACCESSIBILITÉ FIXE                    -->
+    <!-- ============================================ -->
+    <button 
+        id="accessibility-button" 
+        aria-label="Ouvrir le panneau d'accessibilité"
+        aria-expanded="false"
+        aria-controls="accessibility-panel"
+    >
+        <i class="fas fa-universal-access" aria-hidden="true"></i>
+    </button>
+
+    <!-- ============================================ -->
+    <!-- PANNEAU D'ACCESSIBILITÉ (latéral droit)      -->
+    <!-- ============================================ -->
+    <aside 
+        id="accessibility-panel" 
+        class="accessibility-panel"
+        role="dialog"
+        aria-labelledby="accessibility-title"
+        aria-modal="false"
+    >
+        <button 
+            class="close-btn" 
+            aria-label="Fermer le panneau d'accessibilité"
+            id="close-panel-btn"
+        >
+            <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+
+        <h2 id="accessibility-title">Options d'accessibilité</h2>
+
+        <div class="accessibility-status" role="status" aria-live="polite">
+            <p><strong>Modes actifs :</strong> <span id="active-modes-count">Aucun</span></p>
+        </div>
+
+        <section class="accessibility-section">
+            <h3>Modes d'accessibilité</h3>
+
+            <div class="accessibility-option" data-mode="epilepsy-safe" role="switch" aria-checked="false" tabindex="0">
+                <div>
+                    <strong>Mode sans échec pour l'épilepsie</strong>
+                    <p class="option-desc">Atténue la couleur et supprime les clignements</p>
+                </div>
+                <div class="toggle-switch" aria-hidden="true"></div>
+            </div>
+
+            <div class="accessibility-option" data-mode="visually-impaired" role="switch" aria-checked="false" tabindex="0">
+                <div>
+                    <strong>Mode malvoyant</strong>
+                    <p class="option-desc">Améliore les visuels du site</p>
+                </div>
+                <div class="toggle-switch" aria-hidden="true"></div>
+            </div>
+
+            <div class="accessibility-option" data-mode="cognitive-disability" role="switch" aria-checked="false" tabindex="0">
+                <div>
+                    <strong>Mode handicap cognitif</strong>
+                    <p class="option-desc">Aide à se concentrer sur un contenu spécifique</p>
+                </div>
+                <div class="toggle-switch" aria-hidden="true"></div>
+            </div>
+
+            <div class="accessibility-option" data-mode="adhd-friendly" role="switch" aria-checked="false" tabindex="0">
+                <div>
+                    <strong>Mode adapté au TDAH</strong>
+                    <p class="option-desc">Réduit les distractions</p>
+                </div>
+                <div class="toggle-switch" aria-hidden="true"></div>
+            </div>
+
+            <div class="accessibility-option" data-mode="screen-reader" role="switch" aria-checked="false" tabindex="0">
+                <div>
+                    <strong>Mode Cécité</strong>
+                    <p class="option-desc">Optimisé pour lecteur d'écran</p>
+                </div>
+                <div class="toggle-switch" aria-hidden="true"></div>
+            </div>
+        </section>
+
+        <!-- SECTION 2 : Expérience lisible -->
+        <section class="accessibility-section">
+            <h3>Expérience lisible</h3>
+
+            <!-- Taille de la police -->
+            <div class="slider-option">
+                <label for="font-size-slider">Taille de la police</label>
+                <div class="slider-container">
+                    <input 
+                        type="range" 
+                        id="font-size-slider" 
+                        min="80" 
+                        max="150" 
+                        value="100" 
+                        step="10"
+                        aria-valuemin="80"
+                        aria-valuemax="150"
+                        aria-valuenow="100"
+                        aria-label="Ajuster la taille de la police"
+                    >
+                    <span id="font-size-value">100%</span>
+                </div>
+            </div>
+
+            <!-- Hauteur de ligne -->
+            <div class="slider-option">
+                <label for="line-height-slider">Hauteur de ligne</label>
+                <div class="slider-container">
+                    <input 
+                        type="range" 
+                        id="line-height-slider" 
+                        min="1.2" 
+                        max="2.5" 
+                        value="1.6" 
+                        step="0.1"
+                        aria-label="Ajuster la hauteur de ligne"
+                    >
+                    <span id="line-height-value">1.6</span>
+                </div>
+            </div>
+
+            <!-- Espacement des lettres -->
+            <div class="slider-option">
+                <label for="letter-spacing-slider">Espacement des lettres</label>
+                <div class="slider-container">
+                    <input 
+                        type="range" 
+                        id="letter-spacing-slider" 
+                        min="0" 
+                        max="5" 
+                        value="0" 
+                        step="0.5"
+                        aria-label="Ajuster l'espacement des lettres"
+                    >
+                    <span id="letter-spacing-value">0px</span>
+                </div>
+            </div>
+
+            <!-- Police Dyslexie -->
+            <div class="accessibility-option" data-mode="dyslexia-font" role="switch" aria-checked="false" tabindex="0">
+                <div>
+                    <strong>Police adaptée à la dyslexie</strong>
+                </div>
+                <div class="toggle-switch" aria-hidden="true"></div>
+            </div>
+
+            <!-- Titres en surbrillance -->
+            <div class="accessibility-option" data-mode="highlight-headings" role="switch" aria-checked="false" tabindex="0">
+                <div>
+                    <strong>Titres en surbrillance</strong>
+                </div>
+                <div class="toggle-switch" aria-hidden="true"></div>
+            </div>
+
+            <!-- Liens en surbrillance -->
+            <div class="accessibility-option" data-mode="highlight-links" role="switch" aria-checked="false" tabindex="0">
+                <div>
+                    <strong>Liens en surbrillance</strong>
+                </div>
+                <div class="toggle-switch" aria-hidden="true"></div>
+            </div>
+
+            <!-- Alignement du texte -->
+            <div class="text-align-options">
+                <label>Alignement du texte</label>
+                <div class="button-group" role="radiogroup" aria-label="Alignement du texte">
+                    <button 
+                        class="align-btn active" 
+                        data-align="left"
+                        role="radio"
+                        aria-checked="true"
+                        aria-label="Aligner à gauche"
+                    >
+                        <i class="fas fa-align-left" aria-hidden="true"></i>
+                    </button>
+                    <button 
+                        class="align-btn" 
+                        data-align="center"
+                        role="radio"
+                        aria-checked="false"
+                        aria-label="Centrer"
+                    >
+                        <i class="fas fa-align-center" aria-hidden="true"></i>
+                    </button>
+                    <button 
+                        class="align-btn" 
+                        data-align="right"
+                        role="radio"
+                        aria-checked="false"
+                        aria-label="Aligner à droite"
+                    >
+                        <i class="fas fa-align-right" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3 : Expérience visuellement agréable -->
+        <section class="accessibility-section">
+            <h3>Expérience visuellement agréable</h3>
+
+            <!-- Contraste -->
+            <div class="button-group" role="radiogroup" aria-label="Mode de contraste">
+                <button 
+                    class="contrast-btn active" 
+                    data-contrast="normal"
+                    role="radio"
+                    aria-checked="true"
+                    aria-label="Contraste normal"
+                >
+                    Normal
+                </button>
+                <button 
+                    class="contrast-btn" 
+                    data-contrast="dark"
+                    role="radio"
+                    aria-checked="false"
+                    aria-label="Mode sombre"
+                >
+                    Sombre
+                </button>
+                <button 
+                    class="contrast-btn" 
+                    data-contrast="light"
+                    role="radio"
+                    aria-checked="false"
+                    aria-label="Mode clair"
+                >
+                    Clair
+                </button>
+                <button 
+                    class="contrast-btn" 
+                    data-contrast="high"
+                    role="radio"
+                    aria-checked="false"
+                    aria-label="Contraste élevé"
+                >
+                    Élevé
+                </button>
+            </div>
+
+            <!-- Saturation -->
+            <div class="accessibility-option" data-mode="high-saturation" role="switch" aria-checked="false" tabindex="0">
+                <div>
+                    <strong>Haute saturation</strong>
+                </div>
+                <div class="toggle-switch" aria-hidden="true"></div>
+            </div>
+
+            <div class="accessibility-option" data-mode="low-saturation" role="switch" aria-checked="false" tabindex="0">
+                <div>
+                    <strong>Faible saturation</strong>
+                </div>
+                <div class="toggle-switch" aria-hidden="true"></div>
+            </div>
+
+            <div class="accessibility-option" data-mode="monochrome" role="switch" aria-checked="false" tabindex="0">
+                <div>
+                    <strong>Monochrome</strong>
+                </div>
+                <div class="toggle-switch" aria-hidden="true"></div>
+            </div>
+        </section>
+
+        <!-- SECTION 4 : Orientation facile -->
+        <section class="accessibility-section">
+            <h3>Orientation facile</h3>
+
+            <div class="accessibility-option" data-mode="highlight-cursor" role="switch" aria-checked="false" tabindex="0">
+                <div>
+                    <strong>Mettre en surbrillance le curseur</strong>
+                </div>
+                <div class="toggle-switch" aria-hidden="true"></div>
+            </div>
+
+            <div class="accessibility-option" data-mode="big-cursor-dark" role="switch" aria-checked="false" tabindex="0">
+                <div>
+                    <strong>Grand curseur sombre</strong>
+                </div>
+                <div class="toggle-switch" aria-hidden="true"></div>
+            </div>
+
+            <div class="accessibility-option" data-mode="big-cursor-light" role="switch" aria-checked="false" tabindex="0">
+                <div>
+                    <strong>Grand curseur clair</strong>
+                </div>
+                <div class="toggle-switch" aria-hidden="true"></div>
+            </div>
+        </section>
+
+        <!-- BOUTON RÉINITIALISER -->
+        <button id="reset-accessibility-btn" class="reset-btn">
+            <i class="fas fa-undo" aria-hidden="true"></i> Réinitialiser tous les paramètres
+        </button>
+
+    </aside>
+
     <header>
         <div class="container">
             <nav>
@@ -371,11 +681,11 @@
         </div>
     </header>
 
-    <main>
+    <main id="main-content" role="main">
         <!-- Hero Section -->
         <section class="hero container">
             <h1>Groupe Skynium</h1>
-            <p>Le groupe qui réunit l'assistance informatique de proximité et la création audiovisuelle.</p>
+            <p>Le groupe qui réunit l'assistance informatique de proximité et la création audiovisuelle en un monde merveilleux.</p>
         </section>
 
         <!-- Branches Section -->
@@ -507,13 +817,44 @@
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>© 2026 Groupe Skynium.</p>
+    <footer role="contentinfo" class="container">
+        <div>
+            <h3>Nos réseaux</h3>
+            <nav aria-label="Réseaux sociaux">
+                <ul>
+                    <li><a href="https://instagram.com/skynium"><i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+                    <li><a href="https://facebook.com/SkyniumRECONECT"><i class="fa-brands fa-facebook" aria-hidden="true"></i> Facebook</a></li>
+                    <li><a href="https://wa.me/33667225452"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div>
+            <h3>Informations</h3>
+            <nav aria-label="Informations légales">
+                <ul>
+                    <li><a href="https://skynium.fr/mentionslegales.html">Mentions Légales</a></li>
+                    <li><a href="https://skynium.fr/politiqueconfidentialite.html">Politique de Confidentialité</a></li>
+                    <li><a href="https://skynium.fr/accessibilite.html">Accessibilité : totalement conforme</a></li>
+                    <li><a href="https://skynium.fr/souverainete.html">Souveraineté Numérique</a></li>
+                    <li><a href="https://privacy.skynium.fr">Centre de Confidentialité</a></li>
+                    <li><a href="https://ecogreen.skynium.fr">SKYNIUM ECOGREEN</a></li>
+                    <li><a href="https://skynium.fr/plan-du-site.html">Plan du site</a></li>
+                    <li><a href="https://skynium.fr/horizon2027.html">Horizon 2027</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div>
+            <h3>Contact</h3>
+            <p><a href="mailto:contact@skynium.fr"><i class="fa-solid fa-envelope" aria-hidden="true"></i> contact@skynium.fr</a></p>
+            <p><a href="sms:+33667225452"><i class="fa-solid fa-phone" aria-hidden="true"></i> +33 6 67 22 54 52</a></p>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Groupe Skynium. Tous droits réservés.
         </div>
     </footer>
 
     <script src="ressources/skynium-data.js"></script>
+    <script src="https://skynium.fr/ressources/accessibility.js"></script>
 
     <script>
         // Fonction pour mettre à jour le champ de saisie selon le moyen de communication choisi
