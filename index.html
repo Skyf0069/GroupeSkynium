@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groupe Skynium</title>
+    <!-- Police d'écriture propre et standard -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* =================================================== */
+        /* VARIABLES ET RESET                                  */
+        /* =================================================== */
+        :root {
+            --primary: #1D0469;
+            --secondary: #FA5DFF;
+            --tertiary: #FF8A3F;
+            --bg-color: #FAFAFA;
+            --surface: #FFFFFF;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --border: #EAEAEA;
+            --border-radius: 8px;
+            --transition: 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: color var(--transition);
+        }
+
+        a:hover {
+            color: var(--secondary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* =================================================== */
+        /* HEADER / NAVIGATION                                 */
+        /* =================================================== */
+        header {
+            background-color: var(--surface);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .btn-nav {
+            background-color: var(--primary);
+            color: var(--surface) !important;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: background-color var(--transition);
+        }
+
+        .btn-nav:hover {
+            background-color: var(--secondary);
+        }
+
+        /* =================================================== */
+        /* HERO SECTION                                        */
+        /* =================================================== */
+        .hero {
+            text-align: center;
+            padding: 6rem 0 4rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        /* =================================================== */
+        /* BRANCHES SECTION                                    */
+        /* =================================================== */
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+        }
+
+        .branches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .card {
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius);
+            padding: 3rem 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: transform var(--transition), box-shadow var(--transition);
+            border-top: 4px solid var(--primary);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .card.skynium { border-top-color: var(--secondary); }
+        .card.ats { border-top-color: var(--tertiary); }
+
+        .card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: var(--text-light);
+            margin-bottom: 0;
+        }
+
+        /* =================================================== */
+        /* DIRECTION SECTION                                   */
+        /* =================================================== */
+        .team-section {
+            background-color: var(--surface);
+            padding: 5rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+
+        .profile {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            background-color: var(--bg-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            flex-shrink: 0;
+            border: 2px solid var(--border);
+        }
+
+        .profile-info h3 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .profile-info h4 {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .profile-info p {
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: underline;
+        }
+
+        /* =================================================== */
+        /* CONTACT SECTION                                     */
+        /* =================================================== */
+        .contact-section {
+            padding: 5rem 0;
+        }
+
+        .contact-form {
+            background-color: var(--surface);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group.full { grid-column: 1 / -1; }
+
+        label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        input[type="text"], 
+        input[type="email"], 
+        input[type="tel"], 
+        textarea {
+            padding: 12px;
+            border: 1px solid #CCC;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color var(--transition);
+            background-color: var(--surface);
+            color: var(--text-dark);
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* Checkboxes & Radios */
+        .checkbox-group, .radio-group {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .checkbox-item, .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .btn-submit {
+            background-color: var(--primary);
+            color: var(--surface);
+            border: none;
+            padding: 14px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color var(--transition);
+        }
+
+        .btn-submit:hover {
+            background-color: var(--secondary);
+        }
+
+        .status-message {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 500;
+            display: none;
+        }
+        .status-message.success { background-color: #e6f4ea; color: #1e8e3e; display: block; border: 1px solid #cce8d6;}
+        .status-message.error { background-color: #fce8e6; color: #d93025; display: block; border: 1px solid #fad2cf;}
+
+        /* =================================================== */
+        /* FOOTER                                              */
+        /* =================================================== */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* =================================================== */
+        /* RESPONSIVE                                          */
+        /* =================================================== */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .form-grid { grid-template-columns: 1fr; }
+            .team-grid { grid-template-columns: 1fr; }
+            .profile { flex-direction: column; align-items: center; text-align: center; }
+            .contact-form { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">GROUPE SKYNIUM</a>
+                <a href="#contact" class="btn-nav">Nous contacter</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero container">
+            <h1>Groupe Skynium</h1>
+            <p>Le groupe qui réunit l'assistance informatique de proximité et la création audiovisuelle.</p>
+        </section>
+
+        <!-- Branches Section -->
+        <section class="container">
+            <h2 class="section-title">Nos deux branches</h2>
+            <div class="branches-grid">
+                
+                <div class="card skynium">
+                    <h3>Skynium</h3>
+                    <p>Skynium est notre branche technique. Nous proposons une assistance informatique pour les personnes en difficulté face au numérique. C'est également le pôle en charge de la conception, du déploiement et de la gestion d'infrastructures réseaux et serveurs.</p>
+                </div>
+
+                <div class="card ats">
+                    <h3>Above The Sky</h3>
+                    <p>Above The Sky est notre branche créative. Nous y réalisons des films, des compositions musicales et gérons la partie événementielle. Cette branche s'appuie directement sur l'expertise technique de Skynium pour mener à bien ses projets.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Direction Section -->
+        <section class="team-section">
+            <div class="container">
+                <h2 class="section-title">La Direction</h2>
+                <div class="team-grid">
+                    
+                    <div class="profile">
+                        <div class="avatar">JB</div>
+                        <div class="profile-info">
+                            <h3>Jonathan BALBAS</h3>
+                            <h4>Directeur de l'entreprise</h4>
+                            <p>Étudiant en BUT R&T, passionné par l'informatique, les infrastructures réseaux et l'auto-hébergement. Je gère l'aspect technique du groupe et le développement des systèmes d'information.</p>
+                            <div class="social-links">
+                                <a href="https://jonathan-balbas.groupe-skynium.com" target="_blank">Portfolio</a>
+                                <a href="https://www.linkedin.com/in/skynium" target="_blank">LinkedIn</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile">
+                        <div class="avatar">LP</div>
+                        <div class="profile-info">
+                            <h3>Lucille PERNAUD</h3>
+                            <h4>Vice-Présidente</h4>
+                            <p>Étudiante en DN MADe Animation, je supervise l'aspect visuel et créatif. Je gère les projets de la branche Above The Sky en lien avec nos capacités techniques.</p>
+                            <div class="social-links">
+                                <a href="https://lucille-pernaud.groupe-skynium.com" target="_blank">Portfolio</a>
+                                <a href="https://www.linkedin.com/in/lucille-pernaud-234b163b6/" target="_blank">LinkedIn</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section container">
+            <h2 class="section-title">Nous contacter</h2>
+            
+            <div class="contact-form">
+                <form id="contactForm">
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="prenom">Prénom *</label>
+                            <input type="text" id="prenom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="entreprise">Nom de l'entreprise</label>
+                            <input type="text" id="entreprise">
+                        </div>
+                        <div class="form-group full">
+                            <label for="raison">Raison du contact *</label>
+                            <input type="text" id="raison" required placeholder="Ex: Projet web, Assistance, Montage vidéo...">
+                        </div>
+                        <div class="form-group full">
+                            <label for="message">Message *</label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group full" style="margin-top: 1rem;">
+                        <label>Qui souhaitez-vous contacter ? *</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" id="contactJon">
+                                Jonathan
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" id="contactLuc">
+                                Lucille
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group full" style="margin-top: 1rem; border-top: 1px solid #EAEAEA; padding-top: 1.5rem;">
+                        <label>Moyen de communication préféré *</label>
+                        <div class="radio-group">
+                            <label class="radio-item">
+                                <input type="radio" name="moyenCom" value="email" checked onchange="updateContactField()">
+                                Email
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="moyenCom" value="sms" onchange="updateContactField()">
+                                SMS
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="moyenCom" value="telephone" onchange="updateContactField()">
+                                Téléphone
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Champ dynamique qui change selon le choix radio -->
+                    <div class="form-group full" id="coordonneesContainer">
+                        <label id="coordonneesLabel" for="coordonneesValue">Votre Email *</label>
+                        <input type="text" id="coordonneesValue" required placeholder="exemple@domaine.com">
+                    </div>
+
+                    <button type="submit" class="btn-submit" id="submitBtn">Envoyer la demande</button>
+                    <div id="formStatus" class="status-message"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Groupe Skynium.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Fonction pour mettre à jour le champ de saisie selon le moyen de communication choisi
+        function updateContactField() {
+            const moyenCom = document.querySelector('input[name="moyenCom"]:checked').value;
+            const label = document.getElementById('coordonneesLabel');
+            const input = document.getElementById('coordonneesValue');
+
+            if (moyenCom === 'email') {
+                label.textContent = 'Votre Email *';
+                input.placeholder = 'exemple@domaine.com';
+                input.type = 'email';
+            } else {
+                label.textContent = 'Votre numéro de téléphone *';
+                input.placeholder = '06 12 34 56 78';
+                input.type = 'tel';
+            }
+        }
+
+        // Soumission du formulaire
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const btn = document.getElementById('submitBtn');
+            const statusDiv = document.getElementById('formStatus');
+            const contactJon = document.getElementById('contactJon').checked;
+            const contactLuc = document.getElementById('contactLuc').checked;
+
+            statusDiv.className = 'status-message';
+            statusDiv.style.display = 'none';
+
+            if (!contactJon && !contactLuc) {
+                statusDiv.textContent = 'Veuillez sélectionner au moins une personne à contacter (Jonathan ou Lucille).';
+                statusDiv.className = 'status-message error';
+                return;
+            }
+
+            const moyenComVal = document.querySelector('input[name="moyenCom"]:checked').value;
+
+            const formData = {
+                prenom: document.getElementById('prenom').value,
+                entreprise: document.getElementById('entreprise').value,
+                raison: document.getElementById('raison').value,
+                message: document.getElementById('message').value,
+                contactJon: contactJon,
+                contactLuc: contactLuc,
+                moyenCom: moyenComVal,
+                coordonnees: document.getElementById('coordonneesValue').value // Le nouveau champ
+            };
+
+            btn.textContent = 'Envoi en cours...';
+            btn.disabled = true;
+            btn.style.opacity = '0.7';
+
+            try {
+                const response = await fetch('https://api.skynium.fr/webhook/db79540f-17cf-41b5-928f-764483b5fb7b', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    statusDiv.textContent = 'Votre message a bien été envoyé !';
+                    statusDiv.className = 'status-message success';
+                    this.reset();
+                    updateContactField(); // Remet le champ coordonnees par defaut
+                } else {
+                    throw new Error('Erreur serveur');
+                }
+            } catch (error) {
+                statusDiv.textContent = 'Une erreur est survenue lors de l\'envoi. Veuillez réessayer plus tard.';
+                statusDiv.className = 'status-message error';
+            } finally {
+                btn.textContent = 'Envoyer la demande';
+                btn.disabled = false;
+                btn.style.opacity = '1';
+            }
+        });
+    </script>
+</body>
+</html>
