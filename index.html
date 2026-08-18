@@ -16,15 +16,7 @@
     <link rel="manifest" href="https://skynium.fr/ressources/favicon/site.webmanifest" />
 </head>
 <body>
-
-    <!-- ============================================ -->
-    <!-- LIEN D'ÉVITEMENT (visible au focus clavier)  -->
-    <!-- ============================================ -->
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
-
-    <!-- ============================================ -->
-    <!-- BOUTON ACCESSIBILITÉ FIXE                    -->
-    <!-- ============================================ -->
     <button 
         id="accessibility-button" 
         aria-label="Ouvrir le panneau d'accessibilité"
@@ -33,10 +25,6 @@
     >
         <i class="fas fa-universal-access" aria-hidden="true"></i>
     </button>
-
-    <!-- ============================================ -->
-    <!-- PANNEAU D'ACCESSIBILITÉ (latéral droit)      -->
-    <!-- ============================================ -->
     <aside 
         id="accessibility-panel" 
         class="accessibility-panel"
@@ -101,12 +89,8 @@
                 <div class="toggle-switch" aria-hidden="true"></div>
             </div>
         </section>
-
-        <!-- SECTION 2 : Expérience lisible -->
         <section class="accessibility-section">
             <h3>Expérience lisible</h3>
-
-            <!-- Taille de la police -->
             <div class="slider-option">
                 <label for="font-size-slider">Taille de la police</label>
                 <div class="slider-container">
@@ -126,7 +110,6 @@
                 </div>
             </div>
 
-            <!-- Hauteur de ligne -->
             <div class="slider-option">
                 <label for="line-height-slider">Hauteur de ligne</label>
                 <div class="slider-container">
@@ -143,7 +126,6 @@
                 </div>
             </div>
 
-            <!-- Espacement des lettres -->
             <div class="slider-option">
                 <label for="letter-spacing-slider">Espacement des lettres</label>
                 <div class="slider-container">
@@ -160,7 +142,6 @@
                 </div>
             </div>
 
-            <!-- Police Dyslexie -->
             <div class="accessibility-option" data-mode="dyslexia-font" role="switch" aria-checked="false" tabindex="0">
                 <div>
                     <strong>Police adaptée à la dyslexie</strong>
@@ -168,7 +149,6 @@
                 <div class="toggle-switch" aria-hidden="true"></div>
             </div>
 
-            <!-- Titres en surbrillance -->
             <div class="accessibility-option" data-mode="highlight-headings" role="switch" aria-checked="false" tabindex="0">
                 <div>
                     <strong>Titres en surbrillance</strong>
@@ -176,7 +156,6 @@
                 <div class="toggle-switch" aria-hidden="true"></div>
             </div>
 
-            <!-- Liens en surbrillance -->
             <div class="accessibility-option" data-mode="highlight-links" role="switch" aria-checked="false" tabindex="0">
                 <div>
                     <strong>Liens en surbrillance</strong>
@@ -184,7 +163,6 @@
                 <div class="toggle-switch" aria-hidden="true"></div>
             </div>
 
-            <!-- Alignement du texte -->
             <div class="text-align-options">
                 <label>Alignement du texte</label>
                 <div class="button-group" role="radiogroup" aria-label="Alignement du texte">
@@ -219,11 +197,9 @@
             </div>
         </section>
 
-        <!-- SECTION 3 : Expérience visuellement agréable -->
         <section class="accessibility-section">
             <h3>Expérience visuellement agréable</h3>
 
-            <!-- Contraste -->
             <div class="button-group" role="radiogroup" aria-label="Mode de contraste">
                 <button 
                     class="contrast-btn active" 
@@ -263,7 +239,6 @@
                 </button>
             </div>
 
-            <!-- Saturation -->
             <div class="accessibility-option" data-mode="high-saturation" role="switch" aria-checked="false" tabindex="0">
                 <div>
                     <strong>Haute saturation</strong>
@@ -286,7 +261,6 @@
             </div>
         </section>
 
-        <!-- SECTION 4 : Orientation facile -->
         <section class="accessibility-section">
             <h3>Orientation facile</h3>
 
@@ -312,7 +286,6 @@
             </div>
         </section>
 
-        <!-- BOUTON RÉINITIALISER -->
         <button id="reset-accessibility-btn" class="reset-btn">
             <i class="fas fa-undo" aria-hidden="true"></i> Réinitialiser tous les paramètres
         </button>
@@ -329,13 +302,10 @@
     </header>
 
     <main id="main-content" role="main">
-        <!-- Hero Section -->
         <section class="hero container">
             <h1>Groupe Skynium</h1>
             <p>Le groupe qui réunit l'assistance informatique de proximité, la création audiovisuelle et la conception de nouvelles idées en un monde merveilleux.</p>
         </section>
-
-        <!-- Branches Section -->
         <section class="container">
             <h2 class="section-title">Nos trois branches</h2>
             <div class="branches-grid">
@@ -358,7 +328,6 @@
             </div>
         </section>
 
-        <!-- Direction Section -->
         <section class="team-section">
             <div class="container">
                 <h2 class="section-title">La Direction</h2>
@@ -398,7 +367,6 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact" class="contact-section container">
             <h2 class="section-title">Nous contacter</h2>
             
@@ -456,7 +424,6 @@
                         </div>
                     </div>
 
-                    <!-- Champ dynamique qui change selon le choix radio -->
                     <div class="form-group full" id="coordonneesContainer">
                         <label id="coordonneesLabel" for="coordonneesValue">Votre Email *</label>
                         <input type="text" id="coordonneesValue" required placeholder="exemple@domaine.com">
@@ -498,7 +465,7 @@
         <div>
             <h3>Contact</h3>
             <p><a href="mailto:contact@skynium.fr"><i class="fa-solid fa-envelope" aria-hidden="true"></i> contact@skynium.fr</a></p>
-            <p><a href="sms:+33667225452"><i class="fa-solid fa-phone" aria-hidden="true"></i> +33 6 67 22 54 52</a></p>
+            <p><a href="tel:+33422235289"><i class="fa-solid fa-phone" aria-hidden="true"></i> +33 4 22 23 52 89</a></p>
         </div>
         <div class="footer-bottom">
             &copy; 2026 Groupe Skynium. Tous droits réservés.
@@ -507,9 +474,11 @@
 
     <script src="ressources/skynium-data.js"></script>
     <script src="https://skynium.fr/ressources/accessibility.js"></script>
+    <script src="https://api.nexus.skynium.fr/footer/footer.js" defer></script>
+    <script src="https://api.nexus.skynium.fr/bluenews/widget.js" defer></script>
+    <script src="https://api.nexus.skynium.fr/chat-widget/widget.js" defer></script>
 
     <script>
-        // Fonction pour mettre à jour le champ de saisie selon le moyen de communication choisi
         function updateContactField() {
             const moyenCom = document.querySelector('input[name="moyenCom"]:checked').value;
             const label = document.getElementById('coordonneesLabel');
